@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en-US' xml:lang='en-US' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <title>...vmi title...</title>
+    <link href="/design.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+  </head>
+
+  <body>
+    <div class='container'>
+      <div id="header">
+        <h1>
+          <a href="/">
+            <img src="/images/logo.png">
+            Bizt...
+          </a>
+        </h1>
+        <div id="auth">
+<% if logged_in? %>
+          <strong><%= current_user.login %></strong><br/>
+					<a href="/users/<%= current_user.id %>/own">biztosításaim</a> |
+          <a href="/users/<%= current_user.id %>">profil</a> |
+          <a href="/logout">kijelentkezés</a>
+<% else %>
+          <form action="/login" method="POST">
+            <div>
+              <input type="text" id="user" name="user" />
+              <input type="password" id="pass" name="pass" />
+              <input type="submit" value="Ok" />
+            </div>
+          </form>
+          <a href="/users/new">regisztráció</a>
+<% end %>
+        </div>
+      </div>
+      <ul id="nav">
+        <li><a href="/">Biztosítási csomagok</a></li>
+      </ul>
+      <div id="content">
+<% if notice = session.delete(:notice) %>
+        <p class="notice"><%= notice %></p>
+<% end %>
+<% if error = session.delete(:error) %>
+        <p class="error"><%= error %></p>
+<% end %>
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <small>Copyright © 2010, BME Matematika Intézet</small>
+      </div>
+    </div>
+  </body>
+</html>
+

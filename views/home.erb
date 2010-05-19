@@ -1,0 +1,22 @@
+<h2>Biztosítási csomagok</h2>
+
+<p>Elérési biztosítás</p>
+<p>Kockázati biztosítás</p>
+
+<% if logged_in? %>
+	<p>
+		<a href="/buy">Vásárlás</a>
+	</p>
+<% end %>
+
+<% unless logged_in? %>
+<p class="error">Jelentkezz be fent, hogy megvásárolhasd őket!</p>
+<% end %>
+
+<% if current_user.admin? %>
+  <p>
+    Kommutációs számok <a href="/actuarial/new">szerkesztése</a>
+    <br>
+    Kockázati faktorok <a href="/actuarial/risk">szerkesztése</a>
+  </p>
+<% end %>
