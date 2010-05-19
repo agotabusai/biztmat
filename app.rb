@@ -191,6 +191,7 @@ end
 
 get "/confirm" do
 	@deuteria = Deuterium.all
+	@deuterium = @deuteria.last
 	if @user = current_user
 		erb :"/confirm"
 	end
