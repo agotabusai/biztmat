@@ -1,0 +1,23 @@
+create table users(
+id integer primary key autoincrement,
+login varchar(20),
+password_hash varchar(40),
+first_name varchar(20),
+last_name varchar(20),
+birth varchar(4),
+email varchar(40),
+created_at datetime);
+
+create table cnums(
+x integer,
+d integer,
+m integer);
+
+create table deuteria(
+id integer primary key autoincrement,
+user_id integer,
+age integer,
+w varchar(10),
+n integer,
+s integer,
+p integer);
