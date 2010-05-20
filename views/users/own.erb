@@ -1,7 +1,7 @@
 <h2><%= @user.login %> biztosításai</h2>
 
 <% @deuteria.each do |deuterium| %>
-	<% if deuterium[:user_id] = @user[:id] %>
+	<% if deuterium[:user_id] == @user[:id] %>
 		<dl>
 			<dt>Biztosítási csomag típusa:</dt>
 			<% if deuterium[:w]=~ /eleresi/%>
@@ -18,5 +18,7 @@
 			<dt>A biztosítás nettó díja:</dt>
 			<dd><%= deuterium[:p] %> Ft</dd>
 		</dl>
+	<% else %>
+		<p>Még nincsenek...</p>
 	<% end %>
 <% end %>
