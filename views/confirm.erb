@@ -1,12 +1,11 @@
-
 <form action="/confirm" method="post">
   <p><input type="hidden" name="_method" value="delete"/></p>
 	<p>
-		<%= @deuterium[:p] %>
+		A biztosítás nettó díja: <%= @deuterium[:p] %> Ft
 	</p>
   <p class="error">Megvásárolod a csomagot?</p>
   <p>
     <input type="submit" value="Nem"/>, vagy
-    <a href="/buy">Igen</a>
+    <a href="/users/<%= @user.id %>/own">Igen</a>
   </p>
 </form>

@@ -2,7 +2,7 @@
 <html lang='en-US' xml:lang='en-US' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
-    <title>...vmi title...</title>
+    <title>"Biztosító"</title>
     <link href="/design.css" media="screen, projection" rel="stylesheet" type="text/css" />
 
   </head>
@@ -12,15 +12,18 @@
       <div id="header">
         <h1>
           <a href="/">
-            <img src="/images/logo.png">
-            Bizt...
+            <img src="/images/saladfingers4.jpg">
+						<br>            
+						Az én kis biztosítóm
           </a>
         </h1>
         <div id="auth">
 <% if logged_in? %>
           <strong><%= current_user.login %></strong><br/>
-					<a href="/users/<%= current_user.id %>/own">biztosításaim</a> |
-          <a href="/users/<%= current_user.id %>">profil</a> |
+					<% unless current_user.admin? %>					
+						<a href="/users/<%= current_user.id %>/own">biztosításaim</a> |
+					<% end %>          
+					<a href="/users/<%= current_user.id %>">profil</a> |
           <a href="/logout">kijelentkezés</a>
 <% else %>
           <form action="/login" method="POST">
@@ -47,7 +50,7 @@
         <%= yield %>
       </div>
       <div id="footer">
-        <small>Copyright © 2010, BME Matematika Intézet</small>
+        <small>Copyright © 2010, bgotti</small>
       </div>
     </div>
   </body>

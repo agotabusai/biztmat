@@ -6,8 +6,8 @@
 		<br>
 		<input type="radio" name="deuterium[w]" value="kockazati">Kockázati biztosítás
 	</p>
-	<%= form_field_cnum "Ha elérési, hány évre köti?", @deuterium, :n %>
-	<%= form_field_cnum "Biztosítási összeg", @deuterium, :s %>
+	<%= form_field_buy "Ha elérési, hány évre?", @deuterium, :n %>
+	<%= form_field_buy "Biztosítási összeg (Ft)", @deuterium, :s %>
 
 	<p><input type="submit" value="Mehet"/></p>
 </form>

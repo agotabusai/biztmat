@@ -40,7 +40,7 @@ helpers do
     end
   end
 
-  def form_field_cnum(label, object, attribute, type=:text)
+  def form_field_buy(label, object, attribute, type=:text)
     object_name = object.class.name.downcase
     id = "#{object_name}_#{attribute}"
     name = "#{object_name}[#{attribute}]"

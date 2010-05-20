@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #eef;
+  background-color: #ac93cd;
   text-align: center;
 
   font: 12pt Helvetica,Arial,sans-serif;
@@ -20,8 +20,8 @@ body {
   position: relative;
   border-bottom: 1px solid #ccc;
   padding: 1em;
-  height: 60px;
-  background-color: #eee;
+  height: 100px;
+  background-color: #ac935f;
 }
 #header h1 {
   margin: 0;
@@ -48,7 +48,7 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0.25em 0.5em;
-  background-color: #ddd;
+  background-color: #a9b022;
 }
 #nav li {
   display: inline;
@@ -73,9 +73,9 @@ body {
   text-align: center;
 }
 
-a { color: #c60; }
-a:hover { color: #c90; }
-a:active { color: #ca0; }
+a { color: #2c6bc6 }
+a:hover { color: #2cd3c6; }
+a:active { color: #2cd3c6; }
 
 .notice {
   color: #090;

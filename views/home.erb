@@ -1,9 +1,15 @@
 <h2>Biztosítási csomagok</h2>
 
-<p>Elérési biztosítás</p>
-<p>Kockázati biztosítás</p>
+<p><font color="purple">Elérési biztosítás</font>
+	<br>
+	Egy x éves egyén arra az esetre kíván biztosítást kötni, hogy n év múlva - feltéve, hogy eléri az x+n éves kort, a kötött biztosítás értékének megfelelő pénzegységet kapjon. Egyébként a biztosítót nem terheli kötelezettség.
+</p>
+<p><font color="purple">Kockázati biztosítás</font>
+	<br>
+	Egy x éves egyén arra az esetre köt biztosítást, hogy annak az évnek a végén, amikor meghal, az örököse a biztosítás értékének megfelelő pénzegységet kapjon.
+</p>
 
-<% if logged_in? %>
+<% if logged_in? && !current_user.admin? %>
 	<p>
 		<a href="/buy">Vásárlás</a>
 	</p>
@@ -16,7 +22,5 @@
 <% if current_user.admin? %>
   <p>
     Kommutációs számok <a href="/actuarial/new">szerkesztése</a>
-    <br>
-    Kockázati faktorok <a href="/actuarial/risk">szerkesztése</a>
   </p>
 <% end %>

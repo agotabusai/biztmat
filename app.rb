@@ -121,14 +121,14 @@ get "/actuarial/new" do
 		@cnum = Cnum.new(params[:cnum] || {})
 		erb :"actuarial/new"
 	else
-		session[:error] = "Ezt neked nem szabad!!!"		
+		session[:error] = "Csak az adminnak van ehhez jogosultsága!"		
 		redirect "/"
 	end	
 end
 
 post "/actuarial" do
 	unless current_user.admin?
-		session[:error] = "Ezt neked nem szabad!!!"		
+		session[:error] = "Csak az adminnak van ehhez jogosultsága!"		
 		redirect "/"
 	else
 		begin
@@ -136,7 +136,7 @@ post "/actuarial" do
 			@cnum.save
 			redirect "/actuarial/new"
 		rescue Sequel::ValidationFailed
-      session[:error] = "Hiba az űrlapban"
+      session[:error] = "Hiba az űrlapban!"
       erb :"/actuarial/new"
 		end
 	end
@@ -149,7 +149,7 @@ get "/buy" do
 		@deuterium = Deuterium.new(params[:deuterium] || {})		
 		erb :"/buy"
 	else
-		session[:error] = "csak magadnak vehetsz..."
+		session[:error] = "Csak magadnak vásárolhatsz biztosítási csomagot!"
 		redirect "/"
 	end
 end
@@ -183,8 +183,7 @@ post "/buy" do
 			@deuterium[:p] = (@mx.to_f/@dx*@deuterium[:s]).floor
 		end
 		@deuterium.save
-		p("!!!!!!!!!!!",@deuterium)
-		session[:notice] = "...megvetted..."
+		session[:notice] = "Az adataidat feldolgoztuk."
 		redirect "/confirm"
 	end		
 end
@@ -204,8 +203,12 @@ delete "/confirm" do
 		@deuterium.delete
 		session[:notice] = "Esetleg egy másikat?"
 		redirect "/buy"
-	else
-		session[:notice] = "..megvetted.."
-		redirect "/"
+	end
+end
+
+get "/users/:id/own" do
+	if @user = current_user
+		@deuteria = Deuterium.all
+		erb :"/users/own"
 	end
 end
